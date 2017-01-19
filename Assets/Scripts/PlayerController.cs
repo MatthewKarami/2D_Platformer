@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
     public float jumpScale;
+    public float rotateSpeed;
 
     private Rigidbody2D rb;
     private float distToGround;
@@ -20,19 +21,22 @@ public class PlayerController : MonoBehaviour {
     {
         // Left and right movement
         float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(moveHorizontal, 0);
-        this.transform.Translate(movement);
+        transform.Translate(new Vector2(moveHorizontal * moveSpeed, 0), Space.World);
+
+        // Rotation
+        float rotate = Input.GetAxis("Vertical");
+        transform.Rotate(new Vector3(0, 0, rotate * rotateSpeed));
 
         // Jumping
-        if (Input.GetButtonDown("Jump") )
+        if (Input.GetButtonDown("Jump") && isGrounded())
         {
             rb.AddForce(new Vector2(0, jumpScale));
         }
     }
 
-    // Checks to see if Player_1 is touching ground
+    // Checks to see if Player_1 is touching ground (Broken)
     private bool isGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        return Physics2D.Raycast(transform.position, -Vector3.up, distToGround + .1f);
     }
 }
