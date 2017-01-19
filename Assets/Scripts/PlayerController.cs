@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Player_1_Controll : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
     public double moveSpeed;
     public float jumpScale;
@@ -34,5 +35,4 @@ public class Player_1_Controll : MonoBehaviour {
     {
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
-
 }
