@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public double moveSpeed;
+    public float moveSpeed;
     public float jumpScale;
 
     private Rigidbody2D rb;
@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour {
         this.transform.Translate(movement);
 
         // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (Input.GetButtonDown("Jump") )
         {
-            rb.AddForce(new Vector3(0, jumpScale));
+            rb.AddForce(new Vector2(0, jumpScale));
         }
     }
 
