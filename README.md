@@ -7,3 +7,6 @@ Contribution Guidelines:
 Fork the repository and create a new branch. Commit to that branch, and submit a pull request when you're finished.
 
 Look at issues for things to tackle. Make a comment in the issue to claim it before you start working on it.
+
+Trello:
+https://trello.com/b/DNmAUXzp/2d-platformer
