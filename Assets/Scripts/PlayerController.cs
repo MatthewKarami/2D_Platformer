@@ -8,13 +8,16 @@ public class PlayerController : MonoBehaviour {
     public float jumpScale;
     public float rotateSpeed;
 
+    public Transform topLeft;
+    public Transform bottomRight;
+    public LayerMask platforms;
+
     private Rigidbody2D rb;
-    private float distToGround;
+    private bool isGrounded;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        distToGround = rb.GetComponent<BoxCollider2D>().bounds.extents.y;
     }
 
     void Update()
@@ -28,15 +31,10 @@ public class PlayerController : MonoBehaviour {
         transform.Rotate(new Vector3(0, 0, rotate * rotateSpeed));
 
         // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        isGrounded = Physics2D.OverlapArea(topLeft.position, bottomRight.position, platforms);
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(new Vector2(0, jumpScale));
         }
-    }
-
-    // Checks to see if Player_1 is touching ground (Broken)
-    private bool isGrounded()
-    {
-        return Physics2D.Raycast(transform.position, -Vector3.up, distToGround + .1f);
     }
 }

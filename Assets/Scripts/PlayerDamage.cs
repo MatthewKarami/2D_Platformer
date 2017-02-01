@@ -35,10 +35,16 @@ public class PlayerDamage : MonoBehaviour {
 
         if (collision.gameObject.tag == "HexagonEnemy")
         {
-            healthVal -= totalHealth / 2;
-            UpdateHealth();
-            CheckIfDead();
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, damageBump));
+            // Only take damage if the enemy is not killed
+            Vector2 v = transform.position - (Vector3)collision.contacts[0].point;
+
+            if (Mathf.Abs(Vector2.Angle(v, Vector2.up)) > 45.0)
+            {
+                healthVal -= totalHealth / 2;
+                UpdateHealth();
+                CheckIfDead();
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, damageBump));
+            }
         }
     }
 
