@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
     public float jumpScale;
+    public float health;
     public float rotateSpeed;
 
     private Rigidbody2D rb;
@@ -39,4 +40,5 @@ public class PlayerController : MonoBehaviour {
     {
         return Physics2D.Raycast(transform.position, -Vector3.up, distToGround + .1f);
     }
+
 }
