@@ -13,10 +13,10 @@ public class IncreaseSpeed : PowerUp {
         value = 2;
     }
 	
-	void Update ()
+    public void Update ()
     {
         base.Update();
-	}
+    }
 
     public override void Functionality()
     {
