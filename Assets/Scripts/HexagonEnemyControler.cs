@@ -8,11 +8,13 @@ public class HexagonEnemyControler : MonoBehaviour {
 
     private int direction;
 
-	void Start () {
+	void Start ()
+    {
         direction = -1;
 	}
 	
-	void Update () {
+	void Update ()
+    {
         transform.Translate(new Vector2(direction * moveSpeed, 0), Space.World);
     }
 
@@ -29,7 +31,6 @@ public class HexagonEnemyControler : MonoBehaviour {
     {
         // Kills the enemy when Player_1 hits it from above
         Vector2 v = (Vector3)collision.contacts[0].point - transform.position;
-
         if (collision.gameObject.name == "Player_1" && Mathf.Abs(Vector2.Angle(v, Vector2.up)) < 45.0)
         {
             Destroy(this.gameObject);

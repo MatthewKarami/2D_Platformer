@@ -6,14 +6,15 @@ using UnityEngine;
 public class IncreaseHealth : PowerUp {
     
     public int value;
-    // Use this for initialization
-    void Start () {
+
+    void Start ()
+    {
         timer = .5f;
         value = 10;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         base.Update();
 	}
 

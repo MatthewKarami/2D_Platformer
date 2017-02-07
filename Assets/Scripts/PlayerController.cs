@@ -27,10 +27,6 @@ public class PlayerController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(moveHorizontal * moveSpeed, 0), Space.World);
 
-        // Rotation
-        float rotate = Input.GetAxis("Vertical");
-        transform.Rotate(new Vector3(0, 0, rotate * rotateSpeed));
-
         // Jumping
         isGrounded = Physics2D.OverlapArea(topLeft.position, bottomRight.position, platforms);
         if (Input.GetButtonDown("Jump") && isGrounded)

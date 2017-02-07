@@ -37,7 +37,6 @@ public class PlayerDamage : MonoBehaviour {
         {
             // Only take damage if the enemy is not killed
             Vector2 v = transform.position - (Vector3)collision.contacts[0].point;
-
             if (Mathf.Abs(Vector2.Angle(v, Vector2.up)) > 45.0)
             {
                 healthVal -= totalHealth / 2;
