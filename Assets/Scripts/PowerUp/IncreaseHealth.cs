@@ -11,12 +11,12 @@ public class IncreaseHealth : PowerUp {
     {
         timer = .5f;
         value = 10;
-	}
+    }
 
     public void Update ()
     {
         base.Update();
-	}
+    }
 
     public override void Functionality()
     {
