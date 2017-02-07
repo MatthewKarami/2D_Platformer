@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - spike
   - powerup
+  - HexagonEnemy
+  - TurnTrigger
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerDamage : MonoBehaviour {
 
-    public GameObject player;
     public GameObject UI;
     public Text health;
+    public float damageBump;
 
     private int healthVal;
     private const int totalHealth = 100;
@@ -33,7 +33,19 @@ public class PlayerDamage : MonoBehaviour {
             CheckIfDead();
         }
 
-        // In the future, we might test for other collisions here. 
+        if (collision.gameObject.tag == "HexagonEnemy")
+        {
+            // Only take damage if the enemy is not killed
+            Vector2 v = transform.position - (Vector3)collision.contacts[0].point;
+
+            if (Mathf.Abs(Vector2.Angle(v, Vector2.up)) > 45.0)
+            {
+                healthVal -= totalHealth / 2;
+                UpdateHealth();
+                CheckIfDead();
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, damageBump));
+            }
+        }
     }
 
     private void UpdateHealth()
@@ -46,7 +58,7 @@ public class PlayerDamage : MonoBehaviour {
     {
         if (healthVal <= 0)
         {
-            Destroy(player.gameObject);
+            Destroy(gameObject);
         }
     }
 }
