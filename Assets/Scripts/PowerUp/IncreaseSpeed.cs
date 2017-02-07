@@ -7,7 +7,7 @@ public class IncreaseSpeed : PowerUp {
 
     public float value;
 
-    void Start()
+    public void Start()
     {
         timer = 3f;
         value = 2;

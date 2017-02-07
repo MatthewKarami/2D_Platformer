@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PowerUp : MonoBehaviour
-{
+public abstract class PowerUp : MonoBehaviour {
+
     public float timer { get; set; }
     public bool isUsed { get; set; }
     public PlayerController player;
 
-    void Start()
+    public void Start()
     {
         isUsed = false;
     }
@@ -31,7 +31,7 @@ public abstract class PowerUp : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isUsed && collision.gameObject.name == "Player_1")
         {

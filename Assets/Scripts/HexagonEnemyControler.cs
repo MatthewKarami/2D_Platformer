@@ -8,12 +8,12 @@ public class HexagonEnemyControler : MonoBehaviour {
 
     private int direction;
 
-	void Start ()
+    public void Start ()
     {
         direction = -1;
 	}
-	
-	void Update ()
+
+    public void Update ()
     {
         transform.Translate(new Vector2(direction * moveSpeed, 0), Space.World);
     }

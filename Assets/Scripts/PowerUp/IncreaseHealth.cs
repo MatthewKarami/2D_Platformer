@@ -7,20 +7,20 @@ public class IncreaseHealth : PowerUp {
     
     public int value;
 
-    void Start ()
+    public void Start ()
     {
         timer = .5f;
         value = 10;
 	}
-	
-	void Update ()
+
+    public void Update ()
     {
         base.Update();
 	}
 
     public override void Functionality()
     {
-        player.health += value;
+        player.GetComponent<PlayerDamage>().AddHealth(value);
     }
 
 
@@ -28,4 +28,5 @@ public class IncreaseHealth : PowerUp {
     {
         // no reset
     }
+
 }

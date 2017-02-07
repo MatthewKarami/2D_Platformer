@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
     private bool isGrounded;
 
-    void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
