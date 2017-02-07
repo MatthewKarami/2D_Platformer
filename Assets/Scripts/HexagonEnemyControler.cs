@@ -11,7 +11,7 @@ public class HexagonEnemyControler : MonoBehaviour {
     public void Start ()
     {
         direction = -1;
-	}
+    }
 
     public void Update ()
     {
