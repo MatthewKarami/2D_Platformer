@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
     public float jumpScale;
+    public float health;
     public float rotateSpeed;
 
     public Transform topLeft;

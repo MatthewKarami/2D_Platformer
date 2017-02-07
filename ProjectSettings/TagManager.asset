@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - spike
-  - TurnTrigger
+  - powerup
   - HexagonEnemy
+  - TurnTrigger
   layers:
   - Default
   - TransparentFX
@@ -16,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - Platforms
+  - 
   - 
   - 
   - 
@@ -43,7 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Enemies
-    uniqueID: 2194616199
     locked: 0
