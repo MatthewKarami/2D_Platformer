@@ -33,6 +33,16 @@ public abstract class PowerUp : MonoBehaviour
         Debug.Log(timer);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isUsed && collision.gameObject.name == "Player_1")
+        {
+            this.Functionality();
+            isUsed = true;
+        }
+    }
+
+    public abstract void Functionality();
     public abstract void Reset();
 
 

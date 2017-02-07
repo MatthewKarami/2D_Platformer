@@ -17,14 +17,12 @@ public class IncreaseHealth : PowerUp {
         base.Update();
 	}
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public override void Functionality()
     {
-        if (!isUsed && collision.gameObject.name == "Player_1")
-        {
-            player.health += value;
-            isUsed = true;
-        }
+        player.health += value;
     }
+
+
     public override void Reset()
     {
         // no reset

@@ -17,16 +17,10 @@ public class IncreaseSpeed : PowerUp {
         base.Update();
 	}
 
-    void OnCollisionEnter2D(Collision2D collision)
-    { 
-        if (!isUsed && collision.gameObject.name == "Player_1")
-        {
-            Debug.Log("Speed madafka");
-            player.moveSpeed *= value;
-            isUsed = true;
-        }
+    public override void Functionality()
+    {
+        player.moveSpeed *= value;
     }
-
     public override void Reset()
     {
         player.moveSpeed /= value;
