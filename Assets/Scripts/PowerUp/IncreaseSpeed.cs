@@ -6,21 +6,23 @@ using UnityEngine;
 public class IncreaseSpeed : PowerUp {
 
     public float value;
-    void Start()
+
+    public void Start()
     {
         timer = 3f;
         value = 2;
     }
 	
-	// Update is called once per frame
-	void Update () {
+    public void Update ()
+    {
         base.Update();
-	}
+    }
 
     public override void Functionality()
     {
         player.moveSpeed *= value;
     }
+
     public override void Reset()
     {
         player.moveSpeed /= value;

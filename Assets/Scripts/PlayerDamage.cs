@@ -12,43 +12,48 @@ public class PlayerDamage : MonoBehaviour {
     private int healthVal;
     private const int totalHealth = 100;
 
-    void Start()
+    public void Start()
     {
         healthVal = totalHealth;
         health = UI.GetComponent<Text>();
-        UpdateHealth();
+        UpdateHealthText();
     }
 
-    void Update()
+    public void Update()
     {
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "spike")
         {
             healthVal -= totalHealth;
-            UpdateHealth();
+            UpdateHealthText();
             CheckIfDead();
         }
-
         if (collision.gameObject.tag == "HexagonEnemy")
         {
             // Only take damage if the enemy is not killed
             Vector2 v = transform.position - (Vector3)collision.contacts[0].point;
-
             if (Mathf.Abs(Vector2.Angle(v, Vector2.up)) > 45.0)
             {
                 healthVal -= totalHealth / 2;
-                UpdateHealth();
+                UpdateHealthText();
                 CheckIfDead();
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, damageBump));
             }
+            // Bumps player away from enemy
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, damageBump));
         }
     }
 
-    private void UpdateHealth()
+    public void AddHealth(int howMuch)
+    {
+        healthVal += howMuch;
+        UpdateHealthText();
+    }
+
+    private void UpdateHealthText()
     {
         health.text = "Health: " + healthVal;
     }

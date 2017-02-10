@@ -6,20 +6,21 @@ using UnityEngine;
 public class IncreaseHealth : PowerUp {
     
     public int value;
-    // Use this for initialization
-    void Start () {
+
+    public void Start ()
+    {
         timer = .5f;
         value = 10;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    public void Update ()
+    {
         base.Update();
-	}
+    }
 
     public override void Functionality()
     {
-        player.health += value;
+        player.GetComponent<PlayerDamage>().AddHealth(value);
     }
 
 
@@ -27,4 +28,5 @@ public class IncreaseHealth : PowerUp {
     {
         // no reset
     }
+
 }

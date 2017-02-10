@@ -508,6 +508,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 551850337}
+    - target: {fileID: 114663348082407656, guid: fb19eb717f26cd34fa3a0e5c022e9919,
+        type: 2}
+      propertyPath: value
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb19eb717f26cd34fa3a0e5c022e9919, type: 2}
   m_IsPrefabParent: 0
@@ -842,7 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1620705441}
   health: {fileID: 1620705444}
-  damageBump: 2000
+  damageBump: 1000
 --- !u!4 &557789255 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4107142650205592, guid: 1f17eb3b13d437c47b4f986173dd029e,

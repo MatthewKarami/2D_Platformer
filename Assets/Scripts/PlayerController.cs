@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
     private bool isGrounded;
 
-    void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -26,10 +26,6 @@ public class PlayerController : MonoBehaviour {
         // Left and right movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(moveHorizontal * moveSpeed, 0), Space.World);
-
-        // Rotation
-        float rotate = Input.GetAxis("Vertical");
-        transform.Rotate(new Vector3(0, 0, rotate * rotateSpeed));
 
         // Jumping
         isGrounded = Physics2D.OverlapArea(topLeft.position, bottomRight.position, platforms);
