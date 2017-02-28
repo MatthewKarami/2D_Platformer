@@ -22,12 +22,15 @@ public class PlayerController : MonoBehaviour {
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         // Left and right movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(moveHorizontal * moveSpeed, 0), Space.World);
+    }
 
+    private void Update()
+    {
         // Jumping
         isGrounded = Physics2D.OverlapArea(topLeft.position, bottomRight.position, platforms);
         if (Input.GetButtonDown("Jump") && isGrounded)
