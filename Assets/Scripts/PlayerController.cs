@@ -19,9 +19,10 @@ public class PlayerController : MonoBehaviour {
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Left and right movement
         float moveHorizontal = Input.GetAxis("Horizontal");
