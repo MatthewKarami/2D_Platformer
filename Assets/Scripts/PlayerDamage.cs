@@ -32,7 +32,7 @@ public class PlayerDamage : MonoBehaviour {
             UpdateHealthText();
             CheckIfDead();
         }
-        if (collision.gameObject.tag == "HexagonEnemy")
+        if (collision.gameObject.tag == "HexagonEnemy" || collision.gameObject.tag == "RectangleEnemy")
         {
             // Only take damage if the enemy is not killed
             Vector2 v = transform.position - (Vector3)collision.contacts[0].point;
