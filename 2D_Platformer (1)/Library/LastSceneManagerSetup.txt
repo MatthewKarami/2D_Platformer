@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/natalie/Documents/GitHub/2D_Platformer/Assets/Scenes/Level_1.unity
+  isLoaded: 1
+  isActive: 1
