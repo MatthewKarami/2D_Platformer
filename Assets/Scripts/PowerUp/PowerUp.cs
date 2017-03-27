@@ -7,7 +7,9 @@ public abstract class PowerUp : MonoBehaviour {
     public float timer { get; set; }
     public bool isUsed { get; set; }
     public PlayerController player;
+    public bool isLoop;
 
+    private bool isFinished;
     public void Start()
     {
         isUsed = false;
@@ -15,19 +17,18 @@ public abstract class PowerUp : MonoBehaviour {
 
     public void Update()
     {
+
         if (isUsed)
         {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
-            if (timer <= 0)
+            if (isFinished)
             {
                 this.Reset();
                 Destroy(this.gameObject);
             }
-            else
-            {
-                timer -= Time.deltaTime;
-            }
+            if(isLoop) this.Functionality();
+            timer -= Time.deltaTime;
         }
     }
 
@@ -42,4 +43,9 @@ public abstract class PowerUp : MonoBehaviour {
 
     public abstract void Functionality();
     public abstract void Reset();
+
+    public void SetIsFinished(bool value)
+    {
+        isFinished = value;
+    }
 }

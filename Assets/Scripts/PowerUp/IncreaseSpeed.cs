@@ -16,6 +16,7 @@ public class IncreaseSpeed : PowerUp {
     public void Update ()
     {
         base.Update();
+        if (timer == 0) SetIsFinished(true);
     }
 
     public override void Functionality()
