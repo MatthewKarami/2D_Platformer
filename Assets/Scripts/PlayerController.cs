@@ -19,14 +19,18 @@ public class PlayerController : MonoBehaviour {
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         // Left and right movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(moveHorizontal * moveSpeed, 0), Space.World);
+    }
 
+    private void Update()
+    {
         // Jumping
         isGrounded = Physics2D.OverlapArea(topLeft.position, bottomRight.position, platforms);
         if (Input.GetButtonDown("Jump") && isGrounded)

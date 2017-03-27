@@ -7,6 +7,9 @@ TagManager:
   - powerup
   - HexagonEnemy
   - TurnTrigger
+  - spike
+  - RectangleEnemy
+  - platform
   layers:
   - Default
   - TransparentFX
