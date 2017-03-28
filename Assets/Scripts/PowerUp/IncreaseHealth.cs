@@ -6,21 +6,28 @@ using UnityEngine;
 public class IncreaseHealth : PowerUp {
     
     public int value;
+    public int max;
+    private int total;
 
     public void Start ()
     {
-        timer = .5f;
-        value = 10;
+        timer = 10f;
     }
 
     public void Update ()
     {
         base.Update();
+        if (total >= max) SetIsFinished(true);
     }
 
     public override void Functionality()
     {
-        player.GetComponent<PlayerDamage>().AddHealth(value);
+        total += value;
+        if(total <= max)
+        {
+            player.GetComponent<PlayerDamage>().AddHealth(value);
+        }
+       
     }
 
 
